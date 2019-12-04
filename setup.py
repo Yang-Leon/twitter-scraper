@@ -14,14 +14,15 @@ from setuptools import find_packages, setup, Command
 # Package meta-data.
 NAME = 'twitter-scraper'
 DESCRIPTION = 'Scrape the Twitter Frontend API without authentication.'
-URL = 'https://github.com/kennethreitz/twitter-scraper'
-EMAIL = 'me@kennethreitz.org'
-AUTHOR = 'Kenneth Reitz'
+URL = 'https://github.com/bisguzar/twitter-scraper'
+EMAIL = 'ben@bisguzar.com'
+AUTHOR = 'Bugra Isguzar' # Created by Kenneth Reitz
 VERSION = '0.2.1'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'requests-html'
+    'requests-html',
+    'MechanicalSoup'
 ]
 
 # The rest you shouldn't have to touch too much :)
@@ -32,8 +33,8 @@ REQUIRED = [
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Import the README and use it as the long-description.
-# Note: this will only work if 'README.rst' is present in your MANIFEST.in file!
-with io.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
+# Note: this will only work if 'README.md' is present in your MANIFEST.in file!
+with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = '\n' + f.read()
 
 
@@ -79,8 +80,7 @@ setup(
     author=AUTHOR,
     author_email=EMAIL,
     url=URL,
-    # If your package is a single module, use this instead of 'packages':
-    py_modules=['twitter_scraper'],
+    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*", "dist", "*.egg-info"]),
 
     # entry_points={
     #     'console_scripts': ['mycli=mymodule:cli'],
